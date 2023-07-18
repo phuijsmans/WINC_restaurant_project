@@ -1,7 +1,23 @@
 import { useState } from "react";
 import { RecipeListPage } from "./pages/RecipeListPage";
+import { RecipeSearch } from "./components/RecipeSearch";
+import { ChakraProvider } from "@chakra-ui/react";
+import { RecipePage } from "./pages/RecipePage";
 
 export const App = () => {
-  const [selectedItem, setSelectedItem] = useState();
-  return <RecipeListPage />;
+  const [selectedRecipe, setSelectedRecipe] = useState();
+
+  return (
+    <ChakraProvider>
+      {selectedRecipe ? (
+        <>
+          <RecipePage recipe={selectedRecipe} clickFn={setSelectedRecipe} />
+        </>
+      ) : (
+        <>
+          <RecipeListPage clickFn={setSelectedRecipe} />
+        </>
+      )}
+    </ChakraProvider>
+  );
 };
