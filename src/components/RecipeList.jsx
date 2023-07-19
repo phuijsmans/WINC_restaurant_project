@@ -14,10 +14,10 @@ export const RecipeList = ({ recipes, clickFn }) => {
       justify="center"
       alignItems="center"
     >
-      {recipes.map((recipe) => (
+      {recipes.map((object) => (
         <RecipeCard
-          key={recipe.recipe.label}
-          recipe={recipe.recipe}
+          key={object.recipe.label}
+          recipe={object.recipe}
           clickFn={clickFn}
         />
       ))}

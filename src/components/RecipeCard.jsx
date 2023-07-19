@@ -10,6 +10,7 @@ import {
   Flex,
   Tag,
 } from "@chakra-ui/react";
+import { ShowTags } from "./ShowTags";
 
 export const RecipeCard = ({ recipe, clickFn }) => {
   const healthLabels = recipe.healthLabels.map((healthLabel) => (
@@ -36,23 +37,15 @@ export const RecipeCard = ({ recipe, clickFn }) => {
               {recipe.label}
             </Heading>
             <Flex gap={1} justify={"center"}>
-              {recipe.dietLabels.map((diet) => (
-                <Tag key={diet} bg="green.100">
-                  {diet}
-                </Tag>
-              ))}
+              <ShowTags tags={recipe.dietLabels} bg="green.100" />
             </Flex>
-            <Text align="center">Dish:</Text>
-            <Flex justify={"center"}>
-              <Tag>{recipe.dishType}</Tag>
+            <Flex justify={"center"} gap={2}>
+              <Text align="center">Dish:</Text>
+              <Text>{recipe.dishType}</Text>
             </Flex>
             <Text align="center">Cautions:</Text>
             <Flex gap={1} justify={"center"}>
-              {recipe.cautions.map((caution) => (
-                <Tag key={caution} bg="red.100">
-                  {caution}
-                </Tag>
-              ))}
+              <ShowTags tags={recipe.cautions} bg="red.100" />
             </Flex>
             <Flex>{healthLabels}</Flex>
           </Stack>

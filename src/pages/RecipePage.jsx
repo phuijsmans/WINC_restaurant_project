@@ -5,7 +5,7 @@ export const RecipePage = ({ recipe, clickFn }) => {
   return (
     <>
       <Center h="100vh" bg="blue.300">
-        <RecipeDetails recipe={recipe} />
+        <RecipeDetails recipe={recipe} clickFn={clickFn} />
       </Center>
     </>
   );
