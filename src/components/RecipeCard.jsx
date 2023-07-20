@@ -8,18 +8,15 @@ import {
   Image,
   Stack,
   Flex,
-  Tag,
 } from "@chakra-ui/react";
 import { ShowTags } from "./ShowTags";
+import { ShowHealthLabel } from "./ShowHealthLabel";
 
 export const RecipeCard = ({ recipe, clickFn }) => {
-  const healthLabels = recipe.healthLabels.map((healthLabel) => (
-    <Tag key={healthLabel}>{healthLabel}</Tag>
-  ));
   return (
     <Card
       w={"sm"}
-      h={"40rem"}
+      h={"35rem"}
       borderRadius="xl"
       cursor="pointer"
       _hover={{ transform: "scale(1.03)" }}
@@ -36,6 +33,13 @@ export const RecipeCard = ({ recipe, clickFn }) => {
             <Heading size="md" align="center">
               {recipe.label}
             </Heading>
+            <Flex flexDir={"row"} gap={2} justify={"center"}>
+              <ShowHealthLabel
+                labelNames={recipe.healthLabels}
+                input="vegetarian"
+              />
+              <ShowHealthLabel labelNames={recipe.healthLabels} input="vegan" />
+            </Flex>
             <Flex gap={1} justify={"center"}>
               <ShowTags tags={recipe.dietLabels} bg="green.100" />
             </Flex>
@@ -47,11 +51,9 @@ export const RecipeCard = ({ recipe, clickFn }) => {
             <Flex gap={1} justify={"center"}>
               <ShowTags tags={recipe.cautions} bg="red.100" />
             </Flex>
-            <Flex>{healthLabels}</Flex>
           </Stack>
         </CardHeader>
       </CardBody>
-      <CardFooter></CardFooter>
     </Card>
   );
 };
