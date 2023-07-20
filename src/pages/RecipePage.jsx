@@ -4,7 +4,7 @@ import { RecipeDetails } from "../components/RecipeDetails";
 export const RecipePage = ({ recipe, clickFn }) => {
   return (
     <>
-      <Center h="100vh" bg="blue.300">
+      <Center h="100%" bg="blue.300">
         <RecipeDetails recipe={recipe} clickFn={clickFn} />
       </Center>
     </>

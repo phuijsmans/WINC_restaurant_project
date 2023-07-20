@@ -2,15 +2,11 @@ import { Tag } from "@chakra-ui/react";
 import { useState } from "react";
 
 export const ShowHealthLabel = ({ labelNames, input }) => {
-  const labelNameToUpperCase = input.toUpperCase();
+  const inputToUpperCase = input.toUpperCase();
   const [isLabel, setLabel] = useState(
-    labelNames
-      .map((label) => label.toUpperCase())
-      .includes(labelNameToUpperCase)
+    labelNames.map((label) => label.toUpperCase()).includes(inputToUpperCase)
   );
   return (
-    <>
-      {isLabel ? <Tag bg={"purple.100"}>{labelNameToUpperCase}</Tag> : <> </>}
-    </>
+    <>{isLabel ? <Tag bg={"purple.100"}>{inputToUpperCase}</Tag> : <> </>}</>
   );
 };
