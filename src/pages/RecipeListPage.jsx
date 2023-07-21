@@ -1,7 +1,4 @@
-import { Heading, Center, Flex, Stack } from "@chakra-ui/react";
-import { data } from "../utils/data.js";
-import { RecipeCard } from "../components/RecipeCard.jsx";
-import { RecipeList } from "../components/RecipeList.jsx";
+import { Heading, Center, Stack } from "@chakra-ui/react";
 import { RecipeSearch } from "../components/RecipeSearch.jsx";
 
 export const RecipeListPage = ({ clickFn }) => {

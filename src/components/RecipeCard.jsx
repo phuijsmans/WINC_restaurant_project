@@ -8,7 +8,6 @@ import {
   Image,
   Stack,
   Flex,
-  Box,
 } from "@chakra-ui/react";
 import { ShowTags } from "./ShowTags";
 import { ShowHealthLabel } from "./ShowHealthLabel";
@@ -30,7 +29,7 @@ export const RecipeCard = ({ recipe, clickFn }) => {
         <Image
           src={recipe.image}
           h={64}
-          w="100%"
+          w={"100%"}
           align={{ base: "0rem -4rem", sm: "0rem 0rem" }}
         />
       </CardHeader>

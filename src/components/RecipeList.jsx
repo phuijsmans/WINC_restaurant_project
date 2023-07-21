@@ -1,5 +1,4 @@
 import { Flex } from "@chakra-ui/react";
-import { data } from "../utils/data.js";
 import { RecipeCard } from "../components/RecipeCard.jsx";
 
 export const RecipeList = ({ recipes, clickFn }) => {
@@ -10,7 +9,7 @@ export const RecipeList = ({ recipes, clickFn }) => {
     <Flex
       gap={10}
       flexWrap="wrap"
-      flexDir={["column", "row"]}
+      flexDir={"row"}
       justify="center"
       alignItems="center"
     >

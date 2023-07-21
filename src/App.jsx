@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { RecipeListPage } from "./pages/RecipeListPage";
-import { RecipeSearch } from "./components/RecipeSearch";
 import { ChakraProvider } from "@chakra-ui/react";
 import { RecipePage } from "./pages/RecipePage";
 

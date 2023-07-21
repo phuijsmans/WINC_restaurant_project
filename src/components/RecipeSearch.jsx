@@ -26,7 +26,7 @@ export const RecipeSearch = ({ clickFn }) => {
         <TextInput
           id="searchRecipe"
           changeFn={handleChange}
-          w="xl"
+          w={{ base: "18em", md: "xl" }}
           mb={8}
           placeholder="search for recipes"
           bg="white"
