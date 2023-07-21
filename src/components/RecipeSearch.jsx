@@ -1,38 +1,84 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TextInput } from "./ui/TextInput";
 import { RecipeList } from "./RecipeList";
 import { data } from "../utils/data";
-import { Center } from "@chakra-ui/react";
+import { Center, Flex } from "@chakra-ui/react";
+import { DropDownInput } from "./ui/DropDownInput";
 
 export const RecipeSearch = ({ clickFn }) => {
   const [searchField, setSearchField] = useState("");
   const handleChange = (event) => {
     setSearchField(event.target.value);
   };
+  const searchFieldToLowerCase = searchField.toLowerCase();
+
+  const [searchType, setSearchType] = useState("");
+  const handleSearchTypeChange = (event) => {
+    setSearchType(event.target.value);
+  };
+
+  const [searchDefault, setSearchDefault] = useState(false);
+  const [searchTitleVisible, setSearchTitleVisible] = useState(false);
+  const [searchHealthLabelVisible, setSearchHealthLabelVisible] =
+    useState(false);
+
+  useEffect(() => {
+    searchType === "" ? setSearchDefault(true) : setSearchDefault(false);
+    searchType === "recipeName"
+      ? setSearchTitleVisible(true)
+      : setSearchTitleVisible(false);
+    searchType === "healthLabel"
+      ? setSearchHealthLabelVisible(true)
+      : setSearchHealthLabelVisible(false);
+  });
+
   const matchedRecipes = data.hits.filter((object) => {
-    return object.recipe.label
-      .toLowerCase()
-      .includes(searchField.toLowerCase());
+    return object.recipe.label.toLowerCase().includes(searchFieldToLowerCase);
   });
 
   const matchedHealthLabel = data.hits.filter((object) => {
-    return object.recipe.healthLabels.map((healthLabel) => {
-      healthLabel.toLowerCase().includes(searchField.toLowerCase());
-    });
+    const healthLabels = JSON.stringify(
+      object.recipe.healthLabels
+    ).toLowerCase();
+    return healthLabels.includes(searchFieldToLowerCase);
   });
+
   return (
     <>
       <Center>
-        <TextInput
-          id="searchRecipe"
-          changeFn={handleChange}
-          w={{ base: "18em", md: "xl" }}
-          mb={8}
-          placeholder="search for recipes"
-          bg="white"
-        />
+        <Flex flexDir={{ base: "column", md: "row" }}>
+          <Center>
+            <DropDownInput
+              changeFn={handleSearchTypeChange}
+              size="sm"
+              w={{ base: "10em", md: "10em" }}
+              mb={8}
+              bg="white"
+              borderRadius=".4em"
+              mr="0.8em"
+              value={searchType}
+            />
+          </Center>
+          <TextInput
+            id="searchRecipe"
+            changeFn={handleChange}
+            w={{ base: "18em", sm: "md", md: "xl" }}
+            mb={8}
+            placeholder="search for recipes"
+            bg="white"
+          />
+        </Flex>
       </Center>
-      <RecipeList recipes={matchedRecipes} clickFn={clickFn} />
+
+      {searchDefault && (
+        <RecipeList recipes={matchedRecipes} clickFn={clickFn} />
+      )}
+      {searchTitleVisible && (
+        <RecipeList recipes={matchedRecipes} clickFn={clickFn} />
+      )}
+      {searchHealthLabelVisible && (
+        <RecipeList recipes={matchedHealthLabel} clickFn={clickFn} />
+      )}
     </>
   );
 };

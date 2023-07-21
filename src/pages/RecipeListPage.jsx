@@ -6,9 +6,9 @@ export const RecipeListPage = ({ clickFn }) => {
   // console.log(data.hits[0].recipe.label);
 
   return (
-    <Stack bg="blue.300" pb={10}>
+    <Stack bg="blue.300" pb={10} minH={"100vh"}>
       <Center mt={10} mb={10}>
-        <Heading color={"white"} mt={10}>
+        <Heading color={"white"} mt={{ base: 0, sm: 10 }}>
           WINC Recipes
         </Heading>
       </Center>
