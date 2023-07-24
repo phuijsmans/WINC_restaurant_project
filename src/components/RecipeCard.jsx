@@ -1,7 +1,6 @@
 import {
   Card,
   CardBody,
-  CardFooter,
   CardHeader,
   Heading,
   Text,
@@ -35,7 +34,9 @@ export const RecipeCard = ({ recipe, clickFn }) => {
       </CardHeader>
       <CardBody>
         <Stack>
-          <Text align="center">{recipe.mealType}</Text>
+          <Text color="gray.500" fontWeight="500" align="center">
+            {recipe.mealType.toString().toUpperCase()}
+          </Text>
           <Heading size="md" align="center">
             {recipe.label}
           </Heading>

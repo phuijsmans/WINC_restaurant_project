@@ -13,9 +13,6 @@ import { ShowTotalNutrients } from "./ShowTotalNutrients";
 import { RecipeImage } from "./RecipeImage";
 
 export const RecipeDetails = ({ recipe, clickFn }) => {
-  const mealTypeToUpperCase = recipe.mealType.map((mealtype) =>
-    mealtype.toUpperCase()
-  );
   return (
     <>
       <Card bg="white" w="4xl">
@@ -42,7 +39,7 @@ export const RecipeDetails = ({ recipe, clickFn }) => {
           >
             <Flex flexDir={"column"} w={{ base: "100%", md: "50%" }}>
               <Text color="gray.500" fontWeight="500" fontSize="sm">
-                {mealTypeToUpperCase}
+                {recipe.mealType.toString().toUpperCase()}
               </Text>
               <Heading size={"md"}>{recipe.label}</Heading>
               <Text mt=".5rem">
