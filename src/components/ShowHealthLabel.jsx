@@ -7,6 +7,12 @@ export const ShowHealthLabel = ({ labelNames, showLabel }) => {
     labelNames.map((label) => label.toUpperCase()).includes(inputToUpperCase)
   );
   return (
-    <>{isLabel ? <Tag bg={"purple.100"}>{inputToUpperCase}</Tag> : <> </>}</>
+    <>
+      {isLabel ? (
+        <Tag bg={"purple.100"}>{inputToUpperCase.replace("-", " ")}</Tag>
+      ) : (
+        <> </>
+      )}
+    </>
   );
 };

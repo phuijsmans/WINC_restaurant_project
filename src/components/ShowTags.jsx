@@ -6,7 +6,7 @@ export const ShowTags = ({ gap, justify, flexDir, tags, ...tagProps }) => {
       <Flex gap={gap} justify={justify} flexDir={flexDir} wrap="wrap">
         {tags.map((tag) => (
           <Tag key={tag} {...tagProps}>
-            {tag.toUpperCase()}
+            {tag.toUpperCase().replace("-", " ")}
           </Tag>
         ))}
       </Flex>
