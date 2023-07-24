@@ -52,7 +52,7 @@ export const RecipeDetails = ({ recipe, clickFn }) => {
               <Flex flexDir={"column"} mt=".4rem">
                 {recipe.ingredientLines.map((ingredient) => (
                   <Text key={ingredient} mt=".2rem">
-                    {ingredient}
+                    {ingredient.toString().replace("*", "")}
                   </Text>
                 ))}
               </Flex>
