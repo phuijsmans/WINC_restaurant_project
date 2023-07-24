@@ -36,8 +36,14 @@ export const RecipeDetails = ({ recipe, clickFn }) => {
               align={"200% 200%"}
             />
           </Box>
-          <Flex pt="3rem" pl="3rem" pr="3rem" gap={3}>
-            <Flex flexDir={"column"} w="50%">
+          <Flex
+            pt="3rem"
+            pl="3rem"
+            pr="3rem"
+            gap={3}
+            flexDir={{ base: "column", md: "row" }}
+          >
+            <Flex flexDir={"column"} w={{ base: "100%", md: "50%" }}>
               <Text color="gray.500" fontWeight="500" fontSize="sm">
                 {mealTypeToUpperCase}
               </Text>
@@ -57,7 +63,7 @@ export const RecipeDetails = ({ recipe, clickFn }) => {
                 ))}
               </Flex>
             </Flex>
-            <Flex flexDir="column" gap="1" w="50%">
+            <Flex flexDir="column" gap="1" w={{ base: "100%", md: "50%" }}>
               <Text>Health labels:</Text>
               <Flex gap={2} flexDir={"row"} wrap={"wrap"}>
                 <ShowTags tags={recipe.healthLabels} bg={"purple.100"} />
