@@ -1,17 +1,16 @@
 import {
-  Box,
   Card,
   CardBody,
   CardFooter,
   CardHeader,
   Flex,
   Heading,
-  Image,
   Text,
 } from "@chakra-ui/react";
 import { Button } from "./ui/Button";
 import { ShowTags } from "./ShowTags";
 import { ShowTotalNutrients } from "./ShowTotalNutrients";
+import { RecipeImage } from "./RecipeImage";
 
 export const RecipeDetails = ({ recipe, clickFn }) => {
   const mealTypeToUpperCase = recipe.mealType.map((mealtype) =>
@@ -28,14 +27,12 @@ export const RecipeDetails = ({ recipe, clickFn }) => {
               </Text>
             </Button>
           </CardHeader>
-          <Box w="100%" overflow="hidden" h="12rem">
-            <Image
-              src={recipe.image}
-              w="100%"
-              alt={recipe.label}
-              align={"200% 200%"}
-            />
-          </Box>
+          <RecipeImage
+            image={recipe.image}
+            alignImage={{ base: "0rem -25rem", md: "0rem -20rem" }}
+            w="100%"
+            h={{ base: "8rem", md: "12rem" }}
+          />
           <Flex
             pt="3rem"
             pl="3rem"
