@@ -62,17 +62,26 @@ export const RecipeDetails = ({ recipe, clickFn }) => {
             </Flex>
             <Flex flexDir="column" gap="1" w={{ base: "100%", md: "50%" }}>
               <Text>Health labels:</Text>
-              <Flex gap={2} flexDir={"row"} wrap={"wrap"}>
-                <ShowTags tags={recipe.healthLabels} bg={"purple.100"} />
-              </Flex>
+              <ShowTags
+                gap={2}
+                flexDir={"row"}
+                tags={recipe.healthLabels}
+                bg={"purple.100"}
+              />
               <Text>Diet:</Text>
-              <Flex gap={2} flexDir={"row"} wrap={"wrap"}>
-                <ShowTags tags={recipe.dietLabels} bg={"green.100"} />
-              </Flex>
+              <ShowTags
+                gap={2}
+                flexDir={"row"}
+                tags={recipe.dietLabels}
+                bg={"green.100"}
+              />
               <Text>Cautions: </Text>
-              <Flex gap={2} flexDir={"row"} wrap={"wrap"}>
-                <ShowTags tags={recipe.cautions} bg={"red.100"} />
-              </Flex>
+              <ShowTags
+                gap={2}
+                flexDir={"row"}
+                tags={recipe.cautions}
+                bg={"red.100"}
+              />
               <Text fontSize={"1.2rem"} fontWeight={"600"}>
                 Total nutrients:
               </Text>

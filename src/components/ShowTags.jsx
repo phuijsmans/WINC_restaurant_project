@@ -1,13 +1,15 @@
-import { Tag } from "@chakra-ui/react";
+import { Flex, Tag } from "@chakra-ui/react";
 
-export const ShowTags = ({ tags, ...tagProps }) => {
+export const ShowTags = ({ gap, justify, flexDir, tags, ...tagProps }) => {
   return (
     <>
-      {tags.map((tag) => (
-        <Tag key={tag} {...tagProps}>
-          {tag.toUpperCase()}
-        </Tag>
-      ))}
+      <Flex gap={gap} justify={justify} flexDir={flexDir} wrap="wrap">
+        {tags.map((tag) => (
+          <Tag key={tag} {...tagProps}>
+            {tag.toUpperCase()}
+          </Tag>
+        ))}
+      </Flex>
     </>
   );
 };

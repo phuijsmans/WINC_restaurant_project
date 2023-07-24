@@ -25,7 +25,7 @@ export const RecipeCard = ({ recipe, clickFn }) => {
       boxShadow={"2xl"}
       onClick={() => clickFn(recipe)}
     >
-      <CardHeader overflow="hidden" h={{ base: "50%", sm: 64 }} p="0">
+      <CardHeader overflow="hidden" h={{ base: "25%", sm: 64 }} p="0">
         <Image
           src={recipe.image}
           h={64}
@@ -49,17 +49,23 @@ export const RecipeCard = ({ recipe, clickFn }) => {
               showLabel="vegan"
             />
           </Flex>
-          <Flex gap={1} justify={"center"}>
-            <ShowTags tags={recipe.dietLabels} bg="green.100" />
-          </Flex>
+          <ShowTags
+            gap={1}
+            justify="center"
+            tags={recipe.dietLabels}
+            bg="green.100"
+          />
           <Flex justify={"center"} gap={2}>
             <Text align="center">Dish:</Text>
             <Text>{recipe.dishType}</Text>
           </Flex>
           <Text align="center">Cautions:</Text>
-          <Flex gap={1} justify={"center"}>
-            <ShowTags tags={recipe.cautions} bg="red.100" />
-          </Flex>
+          <ShowTags
+            gap={1}
+            justify="center"
+            tags={recipe.cautions}
+            bg="red.100"
+          />
         </Stack>
       </CardBody>
     </Card>
