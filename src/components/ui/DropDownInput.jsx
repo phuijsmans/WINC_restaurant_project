@@ -7,6 +7,7 @@ export const DropDownInput = ({ changeFn, ...props }) => {
         <Select onChange={changeFn}>
           <option value="recipeName">Recipe name</option>
           <option value="healthLabel">Health label</option>
+          <option value="mealType">Meal type</option>
         </Select>
       </FormControl>
     </>

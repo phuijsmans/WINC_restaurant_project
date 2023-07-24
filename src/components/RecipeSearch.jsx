@@ -21,6 +21,7 @@ export const RecipeSearch = ({ clickFn }) => {
   const [searchTitleVisible, setSearchTitleVisible] = useState(false);
   const [searchHealthLabelVisible, setSearchHealthLabelVisible] =
     useState(false);
+  const [searchMealType, setSearchMealType] = useState(false);
 
   useEffect(() => {
     searchType === "" ? setSearchDefault(true) : setSearchDefault(false);
@@ -30,6 +31,9 @@ export const RecipeSearch = ({ clickFn }) => {
     searchType === "healthLabel"
       ? setSearchHealthLabelVisible(true)
       : setSearchHealthLabelVisible(false);
+    searchType === "mealType"
+      ? setSearchMealType(true)
+      : setSearchMealType(false);
   });
 
   const matchedRecipes = data.hits.filter((object) => {
@@ -41,6 +45,11 @@ export const RecipeSearch = ({ clickFn }) => {
       object.recipe.healthLabels
     ).toLowerCase();
     return healthLabels.includes(searchFieldToLowerCase);
+  });
+
+  const matchedMealType = data.hits.filter((object) => {
+    const mealType = JSON.stringify(object.recipe.mealType).toLowerCase();
+    return mealType.includes(searchFieldToLowerCase);
   });
 
   return (
@@ -78,6 +87,9 @@ export const RecipeSearch = ({ clickFn }) => {
       )}
       {searchHealthLabelVisible && (
         <RecipeList recipes={matchedHealthLabel} clickFn={clickFn} />
+      )}
+      {searchMealType && (
+        <RecipeList recipes={matchedMealType} clickFn={clickFn} />
       )}
     </>
   );
