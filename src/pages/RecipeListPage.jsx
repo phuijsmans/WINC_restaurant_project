@@ -1,14 +1,18 @@
-import { Center, Heading, Image } from "@chakra-ui/react";
-import { data } from "../utils/data";
+import { Heading, Center, Stack } from "@chakra-ui/react";
+import { RecipeSearch } from "../components/RecipeSearch.jsx";
 
-export const RecipeListPage = () => {
+export const RecipeListPage = ({ clickFn }) => {
   // You can play around with the console log, but ultimately remove it once you are done
-  console.log(data.hits[5].recipe.cautions);
+  // console.log(data.hits[0].recipe.label);
 
   return (
-    <Center h="100vh" flexDir="column">
-      <Heading>Your Recipe App</Heading>
-      <Image src={data.hits[0].recipe.image} w="300px" />
-    </Center>
+    <Stack bg="blue.300" pb={10} minH={"100vh"}>
+      <Center mt={10} mb={10}>
+        <Heading color={"white"} mt={{ base: 0, sm: 10 }}>
+          WINC Recipes
+        </Heading>
+      </Center>
+      <RecipeSearch clickFn={clickFn} />
+    </Stack>
   );
 };
