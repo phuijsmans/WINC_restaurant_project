@@ -41,9 +41,9 @@ export const RecipeSearch = ({ clickFn }) => {
   });
 
   const matchedHealthLabel = data.hits.filter((object) => {
-    const healthLabels = JSON.stringify(
-      object.recipe.healthLabels
-    ).toLowerCase();
+    const healthLabels = JSON.stringify(object.recipe.healthLabels)
+      .toLowerCase()
+      .replaceAll("-", " ");
     return healthLabels.includes(searchFieldToLowerCase);
   });
 
