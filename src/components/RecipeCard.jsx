@@ -40,16 +40,6 @@ export const RecipeCard = ({ recipe, clickFn }) => {
           <Heading size="md" align="center">
             {recipe.label}
           </Heading>
-          {/* <Flex flexDir={"row"} gap={2} justify={"center"}>
-            <ShowHealthLabel
-              labelNames={recipe.healthLabels}
-              showLabel="vegetarian"
-            />
-            <ShowHealthLabel
-              labelNames={recipe.healthLabels}
-              showLabel="vegan"
-            />
-          </Flex> */}
           <ShowHealthLabel
             labelNames={recipe.healthLabels}
             showLabel={["vegetarian", "vegan"]}
